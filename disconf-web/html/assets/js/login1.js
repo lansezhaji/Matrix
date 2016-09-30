@@ -1,13 +1,14 @@
-$(function(){
-    
+(function ($) {
+
     $("#indexMain").attr("href", "/");
     getSession2Redirect();
-    console.log('login');
-    $('#loginButton').click(function(){
+    // 发送登录请求
+    $(".form-submit").on("click", function () {
+
         var me = this;
-        var email = $("#userInput").val();
-        var pwd = $("#userInput").val();
-        // var remember = $("#inlineCheckbox2").is(':checked') ? 1 : 0;
+        var email = $("#name").val();
+        var pwd = $("#password").val();
+        var remember = $("#inlineCheckbox2").is(':checked') ? 1 : 0;
 
         // 验证
         if (email.length <= 0 || !pwd) {
@@ -21,7 +22,7 @@ $(function(){
             data: {
                 "name": email,
                 "password": pwd,
-                "remember": 1
+                "remember": remember
             }
         }).done(function (data) {
             if (data.success === "true") {
@@ -30,10 +31,10 @@ $(function(){
                 headShowInit();
                 window.location.href = "/main.html";
             } else {
-                layer.alert('用户名或者密码错误');
                 Util.input.whiteError($("#loginError"), data);
                 $("#loginError").show();
             }
         });
-    })  
-})
+    });
+
+})(jQuery);

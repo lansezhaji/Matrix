@@ -54,7 +54,7 @@
                                 </li>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                 <li style="display:inline;">
-                                    <a href="#" id="manage">
+                                    <a href="manage.html"" id="manage">
                                         <span >管理</span>
                                     </a>
                                 </li>
@@ -165,6 +165,60 @@
                                             </ul>
                                         </div>
                                     </div>
+                                    <div id="file_upload_choice" class="private-item clearfix hide">
+                                        <span style="float:left" class="private-item-key">上传配置文件：</span>
+
+                                        <div style="float:left" class="private-item-value-pre">
+                                            <span class="sl-custom-file btn btn-success fileinput-button"
+                                                  style="overflow: hidden;cursor: pointer;">
+                                                <div id="open_dialog_rar">
+                                                    上传配置文件...
+                                                </div>
+                                                <input class="ui-input-file" type="file" name="myfilerar" id="myfilerar"
+                                                       style="width:120px;height:30px;">
+                                            </span>
+                                            <span id="error_rar" class="text-error error_rar"></span>
+
+                                            <div style="color: #999;">
+                                                支持任意类型配置文件(.properties文件可支持自动注入,非.properties文件则只是简单托管)
+                                                <span id="status_rar" class="text-success"></span>
+                                            </div>
+                                            <div class="progress_rar">
+                                                <div class="bar_rar"></div>
+                                                <div class="percent_rar">
+                                                    0%
+                                                </div>
+                                            </div>
+                                            <div class="loading_rar"></div>
+                                        </div>
+                                    </div>
+
+                                    <div id="text_upload_choice" class="hide">
+
+                                        <div class="private-item">
+                                            <span style="float:left" class="private-item-key">文件名：</span>
+                                            <input id="fileName" type="text" class="private-item-value">
+                                        </div>
+
+                                        <div class="private-item">
+                                            <span style="float:left" class="private-item-key">输入文本：</span>
+                                            <textarea id="fileContent" type="text" class="private-item-value"
+                                                      style="min-width:500px;height:200px;"></textarea>
+                                        </div>
+
+                                    </div>
+
+                                    <div id="error" class="error hide">
+                                        表单选项不能为空或填写格式错误！
+                                    </div>
+
+                                </form>
+
+                                <div style="text-align:center">
+                                    <button id="file_submit" class="btn btn-primary">
+                                        新建
+                                    </button>
+                                </div>                                    
                                 </div>
                             </div>  
                         </div>      
@@ -176,60 +230,7 @@
 </div>  
 
 
-                            <div id="file_upload_choice" class="private-item clearfix hide">
-                                <span style="float:left" class="private-item-key">上传配置文件：</span>
 
-                                <div style="float:left" class="private-item-value-pre">
-                                    <span class="sl-custom-file btn btn-success fileinput-button"
-                                          style="overflow: hidden;cursor: pointer;">
-                                        <div id="open_dialog_rar">
-                                            上传配置文件...
-                                        </div>
-                                        <input class="ui-input-file" type="file" name="myfilerar" id="myfilerar"
-                                               style="width:120px;height:30px;">
-                                    </span>
-                                    <span id="error_rar" class="text-error error_rar"></span>
-
-                                    <div style="color: #999;">
-                                        支持任意类型配置文件(.properties文件可支持自动注入,非.properties文件则只是简单托管)
-                                        <span id="status_rar" class="text-success"></span>
-                                    </div>
-                                    <div class="progress_rar">
-                                        <div class="bar_rar"></div>
-                                        <div class="percent_rar">
-                                            0%
-                                        </div>
-                                    </div>
-                                    <div class="loading_rar"></div>
-                                </div>
-                            </div>
-
-                            <div id="text_upload_choice" class="hide">
-
-                                <div class="private-item">
-                                    <span style="float:left" class="private-item-key">文件名：</span>
-                                    <input id="fileName" type="text" class="private-item-value">
-                                </div>
-
-                                <div class="private-item">
-                                    <span style="float:left" class="private-item-key">输入文本：</span>
-                                    <textarea id="fileContent" type="text" class="private-item-value"
-                                              style="min-width:500px;height:200px;"></textarea>
-                                </div>
-
-                            </div>
-
-                            <div id="error" class="error hide">
-                                表单选项不能为空或填写格式错误！
-                            </div>
-
-                        </form>
-
-                        <div style="text-align:center">
-                            <button id="file_submit" class="btn btn-primary">
-                                新建
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>

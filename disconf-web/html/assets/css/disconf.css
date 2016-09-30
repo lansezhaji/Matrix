@@ -39,6 +39,8 @@
 }
 /* 微服务环境 */
 #applist{
+	height: 400px;
+	overflow: auto;
 	text-align: right;
 }
 #applist img{

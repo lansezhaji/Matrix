@@ -4,7 +4,7 @@ var version = -1;
 var userId = '6' ;
 var totalAppCount = 0;
 var totalVersionCount = 0;
-var baseURL = 'http://192.168.30.251:8080/Matrix';
+var baseURL = 'http://101.200.193.96:8090/Matrix';
 var isEnvInit = 0 ;
 var isVersionInit = 0;
 

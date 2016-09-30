@@ -15,3 +15,18 @@
 	color : #445670;
 	background : white !important;
 }
+
+.zkButton{
+	width: 100px;
+	height: 30px;
+	float: right;
+	background-color: #f3f3f3;
+	border:1px solid #445670;
+	border-radius: 0px;
+	margin-left : 15px;
+}
+.zkButton a{
+	color: #445670;
+	text-decoration: none;
+
+}
