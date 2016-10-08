@@ -4,7 +4,7 @@ var version = -1;
 var userId = '6' ;
 var totalAppCount = 0;
 var totalVersionCount = 0;
-var baseURL = 'http://101.200.193.96:8090/Matrix';
+var baseURL = 'http://192.168.100.56:8040';
 var isEnvInit = 0 ;
 var isVersionInit = 0;
 
@@ -43,39 +43,49 @@ $("#envChoice").on('click', 'li', function () {
         "pageCount":"10"
     }
     var reqDate =  JSON.stringify(getAppData);
-    $.ajax({
-        type: "post",
-        data: reqDate,
+                    $.ajax({
+                        type: "POST",
+                        url: "/api/app/getApp",
+                        data: {
+                            "appId": 1,
+                            "envId": 1,
 
-        contentType: "application/json;charset=utf-8",
-        url: baseURL+'/manage/getApp.json',
-        beforeSend:function(){
-            layer.msg('加载中', {icon: 16,shade:0.3}); 
-        },
-        success: function (data) {
-             // var data = JSON.parse(data); 
-             console.log(data);  
-            $('.appManage ').html('');
-            $('.appManage').append('<li class="th"><div class="app" ><span>微服务</span></div><div class="handle"><span >操作</span></div></li>')
-             appList =  data.data;
-             for(app in appList){
-                $('.appManage').append('<li ><div class="app" ><span id='+appList[app].appId+'&envId'+' onclick="evnClick(id)">' + appList[app].appName + '</span></div><div id='+appList[app].appId+'&'+appList[app].appName+'  onclick="deleteEnv(id)"    class="handle"><span >删除</span></div></li>')
-             }
-            $("#appPagination").pagination(data.totalAppCount/10, {
-                num_edge_entries: 1, //边缘页数
-                num_display_entries: 10, //主体页数
+                        }
+                    }).done(function (data) {
+                        console.log(data);
+                    });
+    // $.ajax({
+    //     type: "post",
+    //     data: reqDate,
+    //     // contentType: "application/json;charset=utf-8",
+    //     url: baseURL+'/api/app/getApp',
+    //     beforeSend:function(){
+    //         layer.msg('加载中', {icon: 16,shade:0.3}); 
+    //     },
+    //     success: function (data) {
+    //          // var data = JSON.parse(data); 
+    //          console.log(data);  
+    //         $('.appManage ').html('');
+    //         $('.appManage').append('<li class="th"><div class="app" ><span>微服务</span></div><div class="handle"><span >操作</span></div></li>')
+    //          appList =  data.data;
+    //          for(app in appList){
+    //             $('.appManage').append('<li ><div class="app" ><span id='+appList[app].appId+'&envId'+' onclick="evnClick(id)">' + appList[app].appName + '</span></div><div id='+appList[app].appId+'&'+appList[app].appName+'  onclick="deleteEnv(id)"    class="handle"><span >删除</span></div></li>')
+    //          }
+    //         $("#appPagination").pagination(data.totalAppCount/10, {
+    //             num_edge_entries: 1, //边缘页数
+    //             num_display_entries: 10, //主体页数
 
-                callback: envPageselectCallback,
-                items_per_page: 1 //每页显示1项
-            })
-        },
-        complete:function(){
-            layer.closeAll();
-        },
-        error: function (data) {
-            console.info("error: " + data.responseText);
-        }
-    });
+    //             callback: envPageselectCallback,
+    //             items_per_page: 1 //每页显示1项
+    //         })
+    //     },
+    //     complete:function(){
+    //         layer.closeAll();
+    //     },
+    //     error: function (data) {
+    //         console.info("error: " + data.responseText);
+    //     }
+    // });
 });
 
 
