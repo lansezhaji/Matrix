@@ -3,10 +3,20 @@ $(function(){
     $("#indexMain").attr("href", "/");
     getSession2Redirect();
     console.log('login');
+    // 监听回车事件
+    $("#passwdInput").keyup(function(){
+        if (event.keyCode == 13) {
+            loginQuery();
+        };
+    })
     $('#loginButton').click(function(){
+        loginQuery();
+    })  
+
+    var loginQuery = function(){
         var me = this;
         var email = $("#userInput").val();
-        var pwd = $("#userInput").val();
+        var pwd = $("#passwdInput").val();
         // var remember = $("#inlineCheckbox2").is(':checked') ? 1 : 0;
 
         // 验证
@@ -34,6 +44,6 @@ $(function(){
                 Util.input.whiteError($("#loginError"), data);
                 $("#loginError").show();
             }
-        });
-    })  
+        });        
+    }
 })
